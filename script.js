@@ -63,6 +63,8 @@ document.getElementById("resultado").value = num;
 
 }
 
+
+
 function digitando (tecla){
 
     if(desligada) return;
@@ -104,11 +106,63 @@ function calcula(){
         if (executa == "soma") escrever_display(soma(Number(a),Number(b)));
         a = "";
         b = "";
+        c = "";
         valor = "";
         temPonto = false;
     }
+
+
 }
 
+const calcula_eq2g = (){
+    if(a == "" )
+    //delta = b+b - 4.a.c
+    a = Number (a);
+    b = Number (b);
+    c = Number (c);
+    if(sa != "+")a = -a;
+    if(sb != "+")b = -b;
+    if(sc != "+")c = -c;
+    let delta = (b + b) - (4*a*c);
+    document.getElementById("delta").innerHTML = delta;
+    if(delta < 0) {
+        document.getElementById("raiz").innerHTML = "Não Possui raiz real";
+        
+    }
+    if (delta == 0){
+        let X = -b/(2*a);
+        document.getElementById("raiz").innerHTML = "x1 = x2 + -"+ x;
+        
+    }
+    if (delta > 0){
+        let x1 = (-b + Math.sqrt(delta))/(2+a);
+        let x2 = (-b - Math.sqrt(delta))/(2+a);
+        document.getElementById("raiz").innerHTML = "x1 -" + x1 + ' = x'
+    }
+} 
+
 const set_sinal_a= ()=>{
-    
+    sa = document.getElementById("a").value;
+    calcula_eq2g ();   
+}
+const set_sinal_b= ()=>{
+    sb = document.getElementById("b").value;
+    calcula_eq2g (); 
+}
+
+const set_sinal_c= ()=>{
+    sc = document.getElementById("c").value;
+    calcula_eq2g ();
+}
+const set_valor_a = ()==>{
+    a = document.getElementById("valor_a").value;
+    calcula_eq2g (); 
+}
+const set_valor_b = ()==>{
+    b = document.getElementById("valor_b").value;
+    calcula_eq2g (); 
+}
+const set_valor_c = ()==>{
+    c = document.getElementById("valor_c").value;
+    calcula_eq2g (); 
 }
